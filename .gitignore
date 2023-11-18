@@ -1,32 +1,17 @@
-# Prerequisites
-*.d
+# Ignore all files except .cpp, .cs, and .h files
+*
+!.gitattributes
+!.gitignore
+!readme.md
+!.gitkeep
+# Include .cpp files
+!*.cpp
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Include .cs files
+!*.cs
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+# Include .h files
+!*.h
+!*.hpp
+!*.zip
+!*/

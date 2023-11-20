@@ -1,1 +1,31 @@
-nombre,conexiones
+ID,Nombre,Conexiones,Distancias,Visible
+1,Donatello,2,79,TRUE
+2,Estacionamiento Rodín,1 3 30,79 36 70,TRUE
+3,Esquina Rodin-Extremadura,2 4,36 18,FALSE
+4,Estacionamiento Extremadura,3 5,18 92,TRUE
+5,Esquina Jerez-Extremadura,4 6,92 140,FALSE
+6,Esquina Jerez-Valencia,5 7 8,140 88 49,FALSE
+7,Entrada Valencia,6,88,TRUE
+8,Edificio Rectoría,6 9,49 40,TRUE
+9,Esquina Algeciras-Jerez,8 10 17,40 42 87,FALSE
+10,Esquina Algeciras-Malaga,9 11,42 140,FALSE
+11,Esquina Malaga-Actipan,10 12 13,140 8 46,FALSE
+12,Verdanna,11,8,TRUE
+13,Edificio Málaga,11 14,46 34,TRUE
+14,Chilaquiles Campana,13 15,34 5,TRUE
+15,Edificio Campana,14 16,5 76,TRUE
+16,Esquina Campana-Parroquia,15 18 19,76 33 63,FALSE
+17,Esquina Algeciras-Parroquia,9 18,87 53,FALSE
+18,Parroquia de Santo Domingo,16 17,33 53,TRUE
+19,Edificio Periquillo,16 20 24,63 4 47,TRUE
+20,ParquePaloma1,19 21,4 8,FALSE
+21,ParquePaloma2,20 22,8 3,FALSE
+22,ParquePaloma3,21 23,3 2,FALSE
+23,Entrada UP-Parque de la Paloma,22 26,2 7,TRUE
+24,Esquina Campana-Rodín,19 25,47 35,FALSE
+25,Edificio Anexo,24 26,35 10,TRUE
+26,Calle Rodín-Anexo,25 23 27,10 7 51,FALSE
+27,Esquina Rodín-Goya,26 28 29,51 180 63,FALSE
+28,UP-Goya,27,180,TRUE
+29,Residencia UP,27 30,63 26,TRUE
+30,Entrada UP-Rodín,29 2,26 70,TRUE

@@ -5,7 +5,7 @@ ID,Nombre,Conexiones,Distancias,Visible
 4,Estacionamiento Extremadura,3 5,18 92,TRUE
 5,Esquina Jerez-Extremadura,4 6,92 140,FALSE
 6,Esquina Jerez-Valencia,5 7 8,140 88 49,FALSE
-7,Entrada Valencia,6,88,TRUE
+7,Entrada Valencia,6 46,88 1,TRUE
 8,Edificio Rectoría,6 9,49 40,TRUE
 9,Esquina Algeciras-Jerez,8 10 17,40 42 87,FALSE
 10,Esquina Algeciras-Malaga,9 11,42 140,FALSE
@@ -21,11 +21,28 @@ ID,Nombre,Conexiones,Distancias,Visible
 20,ParquePaloma1,19 21,4 8,FALSE
 21,ParquePaloma2,20 22,8 3,FALSE
 22,ParquePaloma3,21 23,3 2,FALSE
-23,Entrada UP-Parque de la Paloma,22 26,2 7,TRUE
+23,Entrada UP-Parque de la Paloma,22 26 31,2 7 3,TRUE
 24,Esquina Campana-Rodín,19 25,47 35,FALSE
 25,Edificio Anexo,24 26,35 10,TRUE
 26,Calle Rodín-Anexo,25 23 27,10 7 51,FALSE
 27,Esquina Rodín-Goya,26 28 29,51 180 63,FALSE
 28,UP-Goya,27,180,TRUE
 29,Residencia UP,27 30,63 26,TRUE
-30,Entrada UP-Rodín,29 2,26 70,TRUE
+30,Entrada UP-Rodín,29 2 47,26 70 41,TRUE
+31,Pasillo 1,23 32,3 9,FALSE
+32,Jardin Casco Antiguo,31 33 34,9 3 6,FALSE
+33,Edificio Casco Antiguo,32,3,TRUE
+34,Escaleras Chancellor,32 35,6 2,FALSE
+35,Arcos Chancellor,34 36,2 3,FALSE
+36,Mesas Jardin Central Arriba,35 37 38,3 7 8,FALSE
+37,Edificio Chancellor,36,7,TRUE
+38,Jardin Central,36 39 44,8 32 5,FALSE
+39,Café Diseño,38 40,32 5,FALSE
+40,Biblioteca Valencia,39 41,5 13,FALSE
+41,Jardín Jerez,40 42 43,13 2 2,FALSE
+42,Edificio Jerez,41,2,TRUE
+43,Edificio Valencia,41,2,TRUE
+44,Estatua San Jose Maria,38 45,5 2,FALSE
+45,Pasillo 2,44 46,2 2,FALSE
+46,Caseta Vigilancia,45 7 47,2 1 8,FALSE
+47,Pasillo 3,46 30,8 41,FALSE

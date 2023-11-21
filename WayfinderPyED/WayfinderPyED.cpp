@@ -3,23 +3,27 @@
 
 #include "MapGrafos.h"
 
-int main(void) {
+int main(void)
+{
 	setlocale(LC_ALL, "spanish");
 	bool run = true;
 	int start, end;
 	MapGrafos app;
-	while (run) {
+	while (run)
+	{
 		cout << "------Bienvienido a UP Wayfinder------" << endl;
 		cout << "En donde te encuentras?" << endl;
 		app.print_options();
-		cout<<"Ingresa el ID de la opcion: ";
+		cout << "Ingresa el ID de la opcion: ";
 		cin >> start;
 		clearScreen();
-		if (start == 0) {
+		if (start == 0)
+		{
 			run = false;
 			break;
 		}
-		else if ( start > 47 || start < 0) {
+		else if (start > 47 || start < 0)
+		{
 			cout << "Opcion no valida" << endl;
 			clearScreen();
 			continue;
@@ -28,11 +32,13 @@ int main(void) {
 		app.print_options();
 		cin >> end;
 		clearScreen();
-		if (end == 0) {
+		if (end == 0)
+		{
 			run = false;
 			break;
 		}
-		else if (end > 47 || end < 0) {
+		else if (end > 47 || end < 0)
+		{
 			cout << "Opcion no valida" << endl;
 			clearScreen();
 			continue;

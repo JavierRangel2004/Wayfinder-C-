@@ -22,9 +22,15 @@ int main(void)
 			run = false;
 			break;
 		}
-		else if (start > 47 || start < 0)
+		else if (start > 44 || start < 0)
 		{
 			cout << "Opcion no valida" << endl;
+			clearScreen();
+			continue;
+		}
+		else if (start == 44)
+		{
+			app.print_nodes();
 			clearScreen();
 			continue;
 		}
@@ -38,9 +44,21 @@ int main(void)
 			run = false;
 			break;
 		}
-		else if (end > 47 || end < 0)
+		else if (end > 44 || end < 0)
 		{
 			cout << "Opcion no valida" << endl;
+			clearScreen();
+			continue;
+		}
+		else if (end == start)
+		{
+			cout << "No puedes ir al mismo lugar" << endl;
+			clearScreen();
+			continue;
+		}
+		else if (start == 44 || end == 44)
+		{
+			app.print_nodes();
 			clearScreen();
 			continue;
 		}

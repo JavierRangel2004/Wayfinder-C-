@@ -28,7 +28,7 @@ void MapGrafos::print_nodes()
             Node selected_node = getNode(pair2.first);
             cout << "\tID: " << selected_node.id << endl;
             cout << "\tNombre: " << selected_node.name << endl;
-            cout << "\tSe enceuntra a: " << pair2.second <<"m "<< endl;
+            cout << "\tSe encuentra a: " << pair2.second <<"m "<< endl;
             cout<<endl;
         }
     }

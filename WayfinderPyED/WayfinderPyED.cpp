@@ -14,7 +14,7 @@ int main(void)
 		cout << "------Bienvienido a UP Wayfinder------" << endl;
 		cout << "En donde te encuentras?" << endl;
 		app.print_options();
-		cout << "Ingresa el ID de la opcion: ";
+		cout << "Ingresa el ID de INICIO: ";
 		cin >> start;
 		clearScreen();
 		if (start == 0)
@@ -30,6 +30,7 @@ int main(void)
 		}
 		cout << "A donde quieres ir?" << endl;
 		app.print_options();
+		cout << "Ingresa el ID de FINAL: ";
 		cin >> end;
 		clearScreen();
 		if (end == 0)
@@ -44,5 +45,6 @@ int main(void)
 			continue;
 		}
 		app.routes(start, end);
+		clearScreen();
 	}
 }

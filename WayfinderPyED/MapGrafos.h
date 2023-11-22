@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include <clocale>
+#include <queue>
 
 using namespace std;
 
@@ -24,11 +25,9 @@ class MapGrafos
 
 public:
 	MapGrafos();
-	// funct routes recives 2 object nodes and returns the fastest and longest route
 	void routes(int, int);
 	void fastRoute(int, int);
 	void longRoute(int, int);
-	// funct to return Node object from id
 	Node getNode(int);
 	void loadFromFile(const string &filename);
 	void print_options();

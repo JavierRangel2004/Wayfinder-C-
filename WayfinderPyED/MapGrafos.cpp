@@ -4,10 +4,11 @@ void MapGrafos::print_options()
 {
     cout << endl;
     // print name of Node struct for each node in the map
-    cout << "Inician las opciones: " << endl;
     for (auto &pair : nodeMap)
     {
-        cout << pair.second.id << ". " << pair.second.name << endl;
+        if (pair.second.visible) {
+            cout << pair.first << ". " << pair.second.name << endl;
+        }
     }
     cout << "O ingresa 0 para salir" << endl;
 
@@ -54,15 +55,116 @@ void MapGrafos::routes(int start_id, int end_id)
     longRoute(start_id, end_id);
 }
 
-void MapGrafos::fastRoute(int start_id, int end_id)
-{
-    // algoritmo de dijkstra
+void MapGrafos::fastRoute(int start_id, int end_id) {
+    // Check if start_id and end_id are within the bounds of nodeMap
+    if (start_id < 0 || end_id < 0 || start_id >= nodeMap.size() || end_id >= nodeMap.size()) {
+        cout << "Invalid start or end node ID";
+        return;
+    }
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    vector<int> dist(nodeMap.size(), INT_MAX);
+    vector<int> pred(nodeMap.size(), -1);  // Array to store the path
+
+    pq.push(make_pair(0, start_id));
+    dist[start_id] = 0;
+
+    while (!pq.empty()) {
+        int u = pq.top().second;
+        pq.pop();
+
+        // Check bounds for u
+        if (u < 0 || u >= nodeMap.size()) {
+            continue;
+        }
+
+        for (auto i = nodeMap[u].connections.begin(); i != nodeMap[u].connections.end(); ++i) {
+            int v = i->first;
+            int weight = i->second;
+
+            // Check bounds for v
+            if (v < 0 || v >= nodeMap.size()) {
+                continue;
+            }
+
+            if (dist[v] > dist[u] + weight) {
+                dist[v] = dist[u] + weight;
+                pq.push(make_pair(dist[v], v));
+                pred[v] = u;  // Record the predecessor of v
+            }
+        }
+    }
+
+    // Reconstruct the path
+    vector<int> path;
+    int crawl = end_id;
+    while (crawl != -1) {
+        path.push_back(crawl);
+        crawl = pred[crawl];
+
+        // Check for valid predecessor
+        if (crawl >= 0 && crawl >= nodeMap.size()) {
+            cout << "Error in path reconstruction";
+            return;
+        }
+    }
+
+    // Reverse the path vector
+    reverse(path.begin(), path.end());
+
+    // Print the path
+    for (size_t i = 0; i < path.size(); i++) {
+        if (i != 0) {
+            cout << " --> \t";
+        }
+        cout << nodeMap[path[i]].name;
+    }
+    cout << endl;
 }
 
-void MapGrafos::longRoute(int start_id, int end_id)
-{
-    // algoritmo
+
+void MapGrafos::longRoute(int start_id, int end_id) {
+    // This is a simplified implementation to find a longer path
+    // It does not guarantee the longest path in all cases
+
+    vector<bool> visited(nodeMap.size(), false);
+    vector<int> path;
+    int current = start_id;
+
+    while (current != end_id) {
+        visited[current] = true;
+        path.push_back(current);
+
+        // Find a non-visited, non-shortest path neighbor
+        int next = -1;
+        for (auto& neighbor : nodeMap[current].connections) {
+            if (!visited[neighbor.first] && neighbor.first != end_id) {
+                next = neighbor.first;
+                break;
+            }
+        }
+
+        if (next == -1) {
+            // No non-visited neighbors, go to end node
+            break;
+        }
+        else {
+            current = next;
+        }
+    }
+
+    path.push_back(end_id);
+
+    // Print the path
+    for (int node : path) {
+        if (node != start_id) {
+            cout << " --> \t";
+        }
+        cout << nodeMap[node].name;
+    }
+    cout << endl;
 }
+
 
 void MapGrafos::loadFromFile(const string &filename)
 {
@@ -86,7 +188,7 @@ void MapGrafos::loadFromFile(const string &filename)
         getline(ss, visibleStr);
 
         node.id = stoi(idStr);
-        node.visible = (visibleStr == "True" ? true : false);
+        node.visible = (visibleStr.compare("TRUE") == 0 ? true : false);
 
         // Process connections and distances
         stringstream connSS(connections);

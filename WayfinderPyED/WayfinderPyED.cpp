@@ -12,7 +12,7 @@ int main(void)
 	while (run)
 	{
 		cout << "------Bienvienido a UP Wayfinder------" << endl;
-		cout << "En donde te encuentras?" << endl;
+		cout << "¿En donde te encuentras?" << endl;
 		app.print_options();
 		cout << "Ingresa el ID de INICIO: ";
 		cin >> start;
